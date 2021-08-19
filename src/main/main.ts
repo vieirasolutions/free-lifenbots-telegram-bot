@@ -6,21 +6,24 @@
 import { config } from 'dotenv'
 import { Telegraf } from 'telegraf'
 
-// Irá inicializar e procurar o arquivo .env e carregar suas chaves e valores.
+// Init .env file data
 config()
 
-// Criará a instância do bot.
+// Create instance of a bot with telegraf lib
 const bot = new Telegraf(process.env.BOT_KEY)
 
-bot.start(async (ctx) => await ctx.reply('Hello User!'))
-bot.help(async (ctx) => await ctx.reply('Help message'))
+bot.on('new_chat_members', async (ctx) => {
+  ctx.update.message.new_chat_members.map(async (member) => {
+    await ctx.reply(`Bem vindo ${member.first_name}!`)
+  })
+})
 
 async function lauch (): Promise<void> {
   await bot.launch()
 }
 
 // Launch bot
-lauch().catch(error => console.error('Oh no!', { error }))
+lauch().catch(error => console.error('An error ocurred.', { error }))
 
 // Enable graceful stop
 process.once('SIGINT', () => bot.stop('SIGINT'))
