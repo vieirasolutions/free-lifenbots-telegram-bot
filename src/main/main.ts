@@ -12,7 +12,7 @@ config()
 // Criará a instância do bot.
 const bot = new Telegraf(process.env.BOT_KEY)
 
-bot.start(async (ctx) => await ctx.reply('Hello User'))
+bot.start(async (ctx) => await ctx.reply('Hello User!'))
 bot.help(async (ctx) => await ctx.reply('Help message'))
 
 async function lauch (): Promise<void> {
