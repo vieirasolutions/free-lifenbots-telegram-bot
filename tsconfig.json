@@ -1,19 +1,28 @@
 {
   "compilerOptions": {
-      "outDir": "dist",
-      "module": "CommonJS",
-      "target": "ES2019",
-      "esModuleInterop": true,
-      "removeComments": true,
-      "strictNullChecks": false,
-      "sourceMap": true,
-      "rootDir": "src"
+    "outDir": "dist",
+    "module": "CommonJS",
+    "target": "ES2019",
+    "esModuleInterop": true,
+    "removeComments": true,
+    "strictNullChecks": false,
+    "sourceMap": true,
+    "rootDir": "src",
+    "moduleResolution": "node",
+    "typeRoots": [
+      "node_modules",
+    ],
+    "types": [
+      "node",
+    ],
   },
   "include": [
-      "src"
+    "src"
   ],
   "exclude": [
-      "**/*.spec.ts",
-      "**/*.test.ts",
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "node_modules",
+    "dist"
   ]
 }
