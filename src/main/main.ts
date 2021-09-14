@@ -14,7 +14,7 @@ const bot = new Telegraf(process.env.BOT_KEY)
 
 bot.on('new_chat_members', async (ctx) => {
   ctx.update.message.new_chat_members.map(async (member) => {
-    await ctx.reply(`${member.first_name}, pronto para fazer dólares todos os dias ?! Seja muito bem vindo ao grupo Lifenbots Free! Antes de qualquer coisa, veja o vídeo que está fixado no grupo.`)
+    await ctx.reply(`${member.first_name}, Seja bem vindo! O próximo passo é assistir o vídeo que está fixado aqui no topo do grupo.`)
   })
 })
 
