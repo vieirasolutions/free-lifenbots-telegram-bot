@@ -18,7 +18,6 @@ const keyboard = Markup.inlineKeyboard([
 ])
 
 bot.command('acessos', async (ctx) => {
-  await ctx.deleteMessage(ctx.message.message_id)
   await ctx.reply('*Para acessar os robôs:* \nClique abaixo no botão "Acessar Robôs"\nEmail: *Seu email*\nSenha: *senhaprovisoria*', { parse_mode: 'MarkdownV2', ...keyboard })
 })
 
