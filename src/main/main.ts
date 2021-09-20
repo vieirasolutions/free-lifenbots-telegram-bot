@@ -17,7 +17,10 @@ const keyboard = Markup.inlineKeyboard([
   Markup.button.url('Acessar Aulas', 'https://lifenbot.com/cadastro-portal')
 ])
 
-bot.command('acessos', async (ctx) => await ctx.reply('*Para acessar os robôs:* \nClique abaixo no botão "Acessar Robôs"\nEmail: *Seu email*\nSenha: *senhaprovisoria*', { parse_mode: 'MarkdownV2', ...keyboard }))
+bot.command('acessos', async (ctx) => {
+  await ctx.deleteMessage(ctx.message.message_id)
+  await ctx.reply('*Para acessar os robôs:* \nClique abaixo no botão "Acessar Robôs"\nEmail: *Seu email*\nSenha: *senhaprovisoria*', { parse_mode: 'MarkdownV2', ...keyboard })
+})
 
 bot.on('new_chat_members', async (ctx) => {
   ctx.update.message.new_chat_members.map(async (member) => {
