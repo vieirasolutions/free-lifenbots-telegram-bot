@@ -21,6 +21,14 @@ bot.command('acessos', async (ctx) => {
   await ctx.reply('*Para acessar os robôs:* \nClique abaixo no botão "Acessar Robôs"\nEmail: *Seu email*\nSenha: *senhaprovisoria*', { parse_mode: 'MarkdownV2', ...keyboard })
 })
 
+const keyboardOff = Markup.inlineKeyboard([
+  Markup.button.url('Quero ser PREMIUM', 'https://lifenbot.com')
+])
+
+bot.command('promo', async (ctx) => {
+  await ctx.reply('⭐*[ALERTA DE OPORTUNIDADE]*⭐\nOferta *Promocional* para Usuários do Grupo por tempo *LIMITADO:* \n\nLiberamos o acesso *PREMIUM* com valor promocional para usuários dos 7 dias grátis\\.\nClique em *"Quero ser PREMIUM"* e comece a utilizar todos os recursos PREMIUM, vários robôs \\(robô novo toda semana\\), planilhas de gerenciamento da LifenBots, grupo exclusivo no telegram e aulas *EXCLUSIVAS*', { parse_mode: 'MarkdownV2', ...keyboardOff })
+})
+
 bot.on('new_chat_members', async (ctx) => {
   ctx.update.message.new_chat_members.map(async (member) => {
     await ctx.reply(`${member.first_name}, Seja bem vindo! O próximo passo é assistir o vídeo que está fixado aqui no topo do grupo.`)
