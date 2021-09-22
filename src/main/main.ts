@@ -35,6 +35,26 @@ bot.on('new_chat_members', async (ctx) => {
   })
 })
 
+let intervalManutencao
+bot.hears(/\/send|\/stop/, ctx => {
+  if (intervalManutencao) {
+    clearInterval(intervalManutencao)
+  }
+  const sendManutencaoMsg = (ctx): void => {
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
+    ctx.reply('⚠️⚠️⚠️⚠️*Atenção*⚠️⚠️⚠️⚠️\nFoi realizada uma *manutenção* no dia *22/09 as 00:00*\\.\nCaso tenha algum problema de acesso aos robôs, pedimos que limpe o cache do navegador:\n🖥️*Computador:* Apertar CTRL F5\n📱*Celular:* Abrir os LifenBots na guia anônima\\.', { parse_mode: 'MarkdownV2' })
+  }
+  if (ctx.update.message.text.includes('/send')) {
+    sendManutencaoMsg(ctx)
+    intervalManutencao = setInterval(() => {
+      sendManutencaoMsg(ctx)
+    }, (30 * 60 * 1000)) // 30 minutes
+  } else if (ctx.update.message.text.includes('/stop')) {
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
+    ctx.reply('Mensagem de manutenção desligada!')
+  }
+})
+
 async function lauch (): Promise<void> {
   await bot.launch()
 }
