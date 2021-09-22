@@ -42,7 +42,7 @@ bot.hears(/\/send|\/stop/, ctx => {
   }
   const sendManutencaoMsg = (ctx): void => {
     // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    ctx.reply('⚠️⚠️⚠️⚠️*Atenção*⚠️⚠️⚠️⚠️\nFoi realizada uma *manutenção* no dia *22/09 as 00:00*\\.\nCaso tenha algum problema de acesso aos robôs, pedimos que limpe o cache do navegador:\n🖥️*Computador:* Apertar CTRL F5\n📱*Celular:* Abrir os LifenBots na guia anônima\\.', { parse_mode: 'MarkdownV2' })
+    ctx.reply('⚠️⚠️⚠️⚠️*Atenção*⚠️⚠️⚠️⚠️\nFoi realizada uma *manutenção* no dia *22/09 as 18:00*\\.\nCaso tenha algum problema de acesso aos robôs, pedimos que limpe o cache do navegador:\n🖥️*Computador:* Apertar CTRL F5\n📱*Celular:* Abrir os LifenBots na guia anônima\\.', { parse_mode: 'MarkdownV2' })
   }
   if (ctx.update.message.text.includes('/send')) {
     sendManutencaoMsg(ctx)
