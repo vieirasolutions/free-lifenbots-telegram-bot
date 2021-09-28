@@ -14,11 +14,11 @@ const bot = new Telegraf(process.env.BOT_KEY)
 
 const keyboard = Markup.inlineKeyboard([
   Markup.button.url('Acessar Robôs', 'https://app.lifenbot.com'),
-  Markup.button.url('Acessar Aulas', 'https://lifenbot.com/cadastro-portal')
+  Markup.button.url('Acessar Aulas', 'https://lifenbot.com/aulas')
 ])
 
 bot.command('acessos', async (ctx) => {
-  await ctx.reply('*Para acessar os robôs:* \nClique abaixo no botão "Acessar Robôs"\nEmail: *Seu email*\nSenha: *senhaprovisoria*', { parse_mode: 'MarkdownV2', ...keyboard })
+  await ctx.reply('*Para acessar os robôs:* \nClique abaixo no botão "Acessar Robôs"\nEmail: *Seu email*\nSenha: *senhaprovisoria*\n\n*Para acessar as aulas:*\nClique em: "Acessar Aulas" ', { parse_mode: 'MarkdownV2', ...keyboard })
 })
 
 // const keyboardOff = Markup.inlineKeyboard([
